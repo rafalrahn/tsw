@@ -1,4 +1,4 @@
-tsw
-===
+# Technologie Sieci WEB
+# Projekt indywidualny - "SNAKE"
 
-Technologie Sieci WEB
+Gra dla wielu graczy polega na zachodzeniu drogi innym graczom.
