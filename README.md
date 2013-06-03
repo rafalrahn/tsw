@@ -1,4 +1,4 @@
-# Technologie Sieci WEB
-# Projekt indywidualny - "SNAKE"
+# Technologie Sieci WEB - Projekt indywidualny - "SNAKE"
 
-Gra dla wielu graczy polega na zachodzeniu drogi innym graczom.
+Jest to gra dla wielu graczy polega na zabijaniu węży przeciwników.
+Trzeba uważać żeby nie dać się zabić swojemu przeciwnikowi.
