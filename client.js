@@ -44,3 +44,19 @@
         }
         return _results;
       };
+      polaczenie = function() {
+        server = new io.Socket("localhost", {
+          'port': 5000
+        });
+        server.polaczenie();
+        return server.on("message", function(event) {
+          var message;
+          message = JSON.parse(event);
+          switch (message.type) {
+            case 'id':
+              return id = message.value;
+            case 'snakes':
+              return animacja(message.value);
+          }
+        });
+      };
