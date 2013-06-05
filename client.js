@@ -1,10 +1,10 @@
 (function() {
   if (window["WebSocket"]) {
     $(document).ready(function() {
-      var animacja, canvas, polaczenie, context, id, sendDirection, server;
+      var animate, canvas, connect, context, id, sendDirection, server;
       server = null;
-      canvas = $("#poziom");
-      context = canvas.get(0).getContext("2d");    
+      canvas = $("#stage");
+      context = canvas.get(0).getContext("2d");
       id = null;
       sendDirection = function(direction) {
         if (server) {
@@ -13,9 +13,9 @@
           }));
         }
       };
-      animacja = function(snakes) {
+      animate = function(snakes) {
         var element, snake, x, y, _i, _len, _results;
-        context.fillStyle = 'rgb(234,250,7)';
+        context.fillStyle = 'rgb(73,238,255)';
         for (x = 0; x <= 49; x++) {
           for (y = 0; y <= 49; y++) {
             context.fillRect(x * 10, y * 10, 9, 9);
@@ -24,10 +24,10 @@
         _results = [];
         for (_i = 0, _len = snakes.length; _i < _len; _i++) {
           snake = snakes[_i];
-          context.fillStyle = snake.id === id ? 'rgb(0,23,172)' : 'rgb(255,0,0)';
+          context.fillStyle = snake.id === id ? 'rgb(22,230,0)' : 'rgb(204,0,0)';
           if (snake.id === id) {
-            $("#zabicia").html("Zabicia: " + snake.zabicia);
-            $("#smierci").html("Śmierci: " + snake.smierci);
+            $("#kills").html("Kills: " + snake.kills);
+            $("#deaths").html("Deaths: " + snake.deaths);
           }
           _results.push((function() {
             var _j, _len2, _ref, _results2;
@@ -44,11 +44,11 @@
         }
         return _results;
       };
-      polaczenie = function() {
+      connect = function() {
         server = new io.Socket("localhost", {
-          'port': 5000
+          'port': 9980
         });
-        server.polaczenie();
+        server.connect();
         return server.on("message", function(event) {
           var message;
           message = JSON.parse(event);
@@ -56,11 +56,11 @@
             case 'id':
               return id = message.value;
             case 'snakes':
-              return animacja(message.value);
+              return animate(message.value);
           }
         });
       };
-      polaczenie();
+      connect();
       return $(document).keydown(function(event) {
         var key;
         key = event.keyCode ? event.keyCode : event.which;
@@ -80,3 +80,4 @@
     alert("Your browser does not support websockets.");
   }
 }).call(this);
+
