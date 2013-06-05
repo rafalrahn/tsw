@@ -62,3 +62,25 @@
       this.kills++;
       return this.length = this.elements.unshift([-1, -1]);
     };
+    Snake.prototype.reset = function() {
+      var i, rH;
+      rH = Math.floor(Math.random() * 49);
+      this.deaths++;
+      this.length = SNAKE_LENGTH;
+      this.direction = "right";
+      return this.elements = (function() {
+        var _ref, _results;
+        _results = [];
+        for (i = _ref = this.length; _ref <= 1 ? i <= 1 : i >= 1; _ref <= 1 ? i++ : i--) {//jezeli ref jest <=1 lub i <=1; 
+          _results.push([-i, rH]);
+        }
+        return _results;
+      }).call(this);
+    };
+    Snake.prototype.doStep = function() {
+      var i, _ref;
+      for (i = 0, _ref = this.length - 2; 0 <= _ref ? i <= _ref : i >= _ref; 0 <= _ref ? i++ : i--) {//poprawne poruszanie węża jak należy
+        this.moveTail(i);
+      }
+      return this.moveHead();
+    };
