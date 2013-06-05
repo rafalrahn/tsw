@@ -60,3 +60,23 @@
           }
         });
       };
+      polaczenie();
+      return $(document).keydown(function(event) {
+        var key;
+        key = event.keyCode ? event.keyCode : event.which;
+        switch (key) {
+          case 37:
+            return sendDirection("left");
+          case 38:
+            return sendDirection("up");
+          case 39:
+            return sendDirection("right");
+          case 40:
+            return sendDirection("down");
+        }
+      });
+    });
+  } else {
+    alert("Your browser does not support websockets.");
+  }
+}).call(this);
