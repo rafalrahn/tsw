@@ -15,7 +15,7 @@
       };
       animate = function(snakes) {
         var element, snake, x, y, _i, _len, _results;
-        context.fillStyle = 'rgb(73,238,255)';
+        context.fillStyle = 'rgb(235,255,100)';
         for (x = 0; x <= 49; x++) {
           for (y = 0; y <= 49; y++) {
             context.fillRect(x * 10, y * 10, 9, 9);
@@ -80,4 +80,3 @@
     alert("Your browser does not support websockets.");
   }
 }).call(this);
-
