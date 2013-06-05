@@ -1,6 +1,6 @@
 body {
-	background-color: #FFA500;
-	font-family: 'Trebuchet MS', 'Helvetica Neue', Arial, Sans-serif;
+	background-color: #fff;
+	font-family: 'Courier';
 	color: #222;
 }
 
@@ -21,15 +21,13 @@ a:hover {
 	color: #a00;
 }
 
-
-#tablica_wynikow {
+#scoreboard {
   text-align: center;
   padding: 0;
   padding-bottom: 12px;
 }
 
-#poziom {
-	border: 1px bold;
+#stage {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -40,3 +38,4 @@ p {
 	font-weight: normal;
 	font-size: 11px;
 }
+
