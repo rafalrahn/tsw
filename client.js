@@ -2,7 +2,7 @@
   if (window["WebSocket"]) {
     $(document).ready(function() {
       var animate, canvas, connect, context, id, sendDirection, server;
-      server = null;
+      server = window.location.host.name;
       canvas = $("#stage");
       context = canvas.get(0).getContext("2d");
       id = null;
@@ -45,7 +45,7 @@
         return _results;
       };
       connect = function() {
-        server = new io.Socket("localhost", {
+        server = new io.Socket(window.location.host.name, {
           'port': 9980
         });
         server.connect();

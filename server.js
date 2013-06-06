@@ -6,11 +6,11 @@
   url = require('url');
   io = require('socket.io');
   fs = require('fs');
-  HOST = null;
+  HOST = "window.location.host.name";
   PORT = 9980;
   STAGE_WIDTH = 49;
   STAGE_HEIGHT = 49;
-  SNAKE_LENGTH = 8;
+  SNAKE_LENGTH = 9;
   Array.prototype.remove = function(e) {
     var t, _ref;
     if ((t = this.indexOf(e)) > -1) {
@@ -71,7 +71,7 @@
       return this.elements = (function() {
         var _ref, _results;
         _results = [];
-        for (i = _ref = this.length; _ref <= 1 ? i <= 1 : i >= 1; _ref <= 1 ? i++ : i--) {//jezeli ref jest <=1 lub i <=1; 
+        for (i = _ref = this.length; _ref <= 1 ? i <= 1 : i >= 1; _ref <= 1 ? i++ : i--) {
           _results.push([-i, rH]);
         }
         return _results;
@@ -79,12 +79,12 @@
     };
     Snake.prototype.doStep = function() {
       var i, _ref;
-      for (i = 0, _ref = this.length - 2; 0 <= _ref ? i <= _ref : i >= _ref; 0 <= _ref ? i++ : i--) {//poprawne poruszanie węża jak należy
+      for (i = 0, _ref = this.length - 2; 0 <= _ref ? i <= _ref : i >= _ref; 0 <= _ref ? i++ : i--) {
         this.moveTail(i);
       }
       return this.moveHead();
     };
-    Snake.prototype.moveTail = function(i) {//zwiększa głowe zmniejsza ogon
+    Snake.prototype.moveTail = function(i) {
       this.elements[i][0] = this.elements[i + 1][0];
       return this.elements[i][1] = this.elements[i + 1][1];
     };
