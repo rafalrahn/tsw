@@ -1,5 +1,5 @@
 {
-	"name":         "snake_mulitplayer_game",
+	"name":         "snake_killers",
 	"version":		"1.0.0",
 	"dependencies": {
 						"socket.io": "= 0.6.18"
